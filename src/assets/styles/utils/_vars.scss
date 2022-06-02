@@ -1,0 +1,20 @@
+// Fonts
+$FUbuntu: "Ubuntu";
+$FFMain: $FUbuntu, Arial, Helvetica, sans-serif;
+
+// Colors
+$CWhite: #fff;
+$CGreen: #1ed5a9;
+$CGreenLight: #c0fecf;
+$CBlueDark: #032541;
+$CBlueDarkOpacity: #03254188;
+$CBlueLight: #0cc;
+
+// Gradients
+$GGreenToRight: linear-gradient(to right, $CGreenLight 0%, $CGreen 100%);
+
+// Radius
+$RDefault: 8px;
+
+// Box Shadow
+$BSDarkLight: 0 2px 8px rgb(0 0 0 / 10%);

@@ -1,0 +1,62 @@
+@import "../../assets/styles/utils/vars";
+
+.selector {
+  display: inline-flex;
+  border-radius: 100px;
+  position: relative;
+  border: 1px solid;
+  margin-top: 10px;
+  overflow: hidden;
+
+  &_green {
+    border-color: $CGreen;
+
+    .item {
+      color: $CWhite;
+
+      &.active {
+        color: $CBlueDark;
+      }
+    }
+
+    .bg {
+      background: $GGreenToRight;
+    }
+  }
+
+  &_blue {
+    border-color: $CBlueDark;
+
+    .item {
+      color: $CBlueDark;
+
+      &.active {
+        color: $CGreen;
+      }
+    }
+
+    .bg {
+      background: $CBlueDark;
+    }
+  }
+}
+
+.item {
+  padding: 4px 20px;
+  font-weight: 500;
+  cursor: pointer;
+
+  &.active {
+    opacity: 0.8;
+    transition: 0.2s ease-in;
+  }
+}
+
+.bg {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-radius: 100px;
+  transform: scale(1.01);
+  transition: 0.2s ease-in-out;
+}
