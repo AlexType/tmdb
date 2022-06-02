@@ -7,14 +7,14 @@ const CardHuman: FC<ICardHuman> = ({ src, name, roles }): ReactElement => {
   return (
     <div className={styles.card}>
       <div className={styles.top}>
-        <Link href="">
+        <Link href="/">
           <a>
             <img src={src} alt={name} />
           </a>
         </Link>
       </div>
       <div className={styles.bottom}>
-        <Link href="">
+        <Link href="/">
           <a className={styles.name}>{name}</a>
         </Link>
         {roles?.length && (

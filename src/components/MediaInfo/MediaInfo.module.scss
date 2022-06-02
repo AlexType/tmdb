@@ -5,7 +5,11 @@
 }
 
 .mask {
-  background: linear-gradient(to right, rgba(31.5, 31.5, 10.5, 1) 150px, rgba(31.5, 31.5, 10.5, 0.84) 100%);
+  background: linear-gradient(
+    to right,
+    rgba(31.5, 31.5, 10.5, 1) 150px,
+    rgba(31.5, 31.5, 10.5, 0.84) 100%
+  );
   padding: 30px 0;
 }
 
@@ -17,4 +21,41 @@
     font-weight: 400;
     opacity: 0.8;
   }
+}
+
+.info {
+  font-size: 13px;
+  margin-top: 4px;
+  opacity: 0.8;
+  display: flex;
+  flex-wrap: wrap;
+
+  li {
+    margin-right: 28px;
+    position: relative;
+
+    &:after {
+      content: "\2022";
+      position: absolute;
+      right: -16px;
+      top: -1px;
+      font-size: 16px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+.subtitle {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.description {
 }

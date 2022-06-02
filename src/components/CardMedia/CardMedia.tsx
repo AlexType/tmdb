@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { FC, ReactElement, useRef, useState } from "react";
 import { ICardMedia } from ".";
 import { useClickOutside } from "../../utils/hooks/useClickOutside";
+import Rating from "../Rating";
 import Sprite from "../Sprite";
 import styles from "./CardMedia.module.scss";
 
@@ -61,6 +62,9 @@ const CardMedia: FC<ICardMedia> = ({
           <a className={styles.title}>{title}</a>
         </Link>
         <span className={styles.date}>31 окт 2010</span>
+        <div className={styles.rating}>
+          <Rating rating={8} />
+        </div>
       </div>
     </div>
   );

@@ -1,39 +1,70 @@
 import React, { FC, ReactElement } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { IMediaInfo } from ".";
 
+import { IMediaInfo } from ".";
+import { imgPathCreator } from "../../utils/const";
+import Rating from "../Rating";
 import styles from "./MediaInfo.module.scss";
 
-const MediaInfo: FC<IMediaInfo> = ({ svg }): ReactElement => {
+const MediaInfo: FC<IMediaInfo> = ({
+  poster_path,
+  title,
+  release,
+}): ReactElement => {
   return (
     <div
       className={styles.wrapper}
       style={{
-        backgroundImage:
-          "url(https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/8H64YmIYxpRJgSTuLUGRUSyi2kN.jpg)",
+        backgroundImage: `url(${imgPathCreator(
+          poster_path,
+          "w1920_and_h800_multi_faces"
+        )})`,
       }}
     >
       <div className={styles.mask}>
         <Container>
-          <Row>
+          <Row className="align-items-center">
             <Col xs="auto">
               <div>
                 <img
-                  src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/f9pwFmYsbXUs3lJQszkhaZH0LuE.jpg"
+                  src={imgPathCreator(poster_path, "w600_and_h900_bestv2")}
                   alt=""
                 />
               </div>
             </Col>
             <Col>
               <h1 className={styles.title}>
-                Оби-Ван Кеноби <span>(2022)</span>
+                {title} <span>({release})</span>
               </h1>
               <ul className={styles.info}>
-                <li>НФ и Фэнтези, Боевик и Приключения, драма</li>
+                <li>
+                  <p className="enumeration">
+                    <span>НФ и Фэнтези</span>
+                    <span>Боевик и Приключения</span>
+                    <span>драма</span>
+                  </p>
+                </li>
                 <li>56m</li>
               </ul>
-              <p>Обзор</p>
-              <p className={styles.description}>
+
+              <Row className="align-items-center gx-2 my-3">
+                <Col xs="auto">
+                  <Rating
+                    rating={9}
+                    size={70}
+                    strokeWidth={5}
+                    fontSize="20px"
+                  />
+                </Col>
+                <Col xs="auto">
+                  <p className="fw-bold fs-14">
+                    Пользовательский <br />
+                    счёт
+                  </p>
+                </Col>
+              </Row>
+              <p className={styles.subtitle}>Обзор</p>
+              <p className="mt-3">
                 В центре внимания Оби-Вана Кеноби через 10 лет после окончания
                 Войн клонов, где он потерпел величайшее поражение; падение и
                 развращение его лучшего друга и ученика-джедая, Энакина

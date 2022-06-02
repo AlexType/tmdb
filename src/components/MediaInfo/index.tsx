@@ -5,5 +5,7 @@ export default MediaInfo;
 // Interfaces
 
 export interface IMediaInfo {
-  svg?: string;
+  title: string;
+  release: string;
+  poster_path: string;
 }
