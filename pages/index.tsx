@@ -1,9 +1,14 @@
-import type { NextPage } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Head from "next/head";
 import React, { ReactElement } from "react";
 import { Container } from "react-bootstrap";
+
 import CardHuman from "../src/components/CardHuman";
 import CardMedia from "../src/components/CardMedia";
 import Selector, { ISelectorOption } from "../src/components/Selector";
+
+import type { NextPage } from "next";
+import { useTranslation } from "next-i18next";
 
 const Home: NextPage = (): ReactElement => {
   const options: ISelectorOption[] = [
@@ -13,8 +18,13 @@ const Home: NextPage = (): ReactElement => {
     { title: "В кинотеатрах", value: "cinema" },
   ];
 
+  const { t } = useTranslation("common");
+
   return (
     <Container>
+      <Head>
+        <title>{t("MAIN_TITLE")}</title>
+      </Head>
       <Selector options={options} />
       <div className="row row-cols-5">
         <div className="col">
@@ -71,5 +81,11 @@ const Home: NextPage = (): ReactElement => {
     </Container>
   );
 };
+
+export const getStaticProps = async ({ locale }: any): Promise<any> => ({
+  props: {
+    ...(await serverSideTranslations(locale, ["common"])),
+  },
+});
 
 export default Home;

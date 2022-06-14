@@ -1,6 +1,7 @@
 export const API_KEY = "183be1af6a759a090939c389bae30762";
 export const PLACEHOLDER_URL = "http://placehold.jp";
 export const IMG_URL = "https://image.tmdb.org";
+export const API_URL = "https://api.themoviedb.org/3";
 
 export enum ELanguages {
   ru = "ru",
