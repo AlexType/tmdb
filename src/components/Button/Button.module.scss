@@ -1,0 +1,23 @@
+@import "../../assets/styles/utils/vars";
+
+.button {
+  border: none;
+  background: none;
+  transition: 0.2s ease-in;
+}
+
+.variant {
+  &_default {
+    color: #fff;
+  }
+
+  &_white-border {
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: $RDefault / 2;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

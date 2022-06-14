@@ -1,12 +1,14 @@
 import { setCookies } from "cookies-next";
 import { useRouter } from "next/router";
 
-export const useLocale = (): {
+interface IUseLocaleReturn {
   changeLocale: (locale: string) => void;
   toggleLocale: () => void;
   locale: string | undefined;
   asPath: string;
-} => {
+}
+
+export const useLocale = (): IUseLocaleReturn => {
   const router = useRouter();
   const { asPath, locale } = router;
 
