@@ -1,8 +1,8 @@
-import "../src/assets/styles/index.scss";
-
+import "moment/locale/ru";
 import { appWithTranslation } from "next-i18next";
 import React, { FC, ReactElement } from "react";
 import { Provider } from "react-redux";
+import "../src/assets/styles/index.scss";
 
 import App from "../src/components/App";
 import { store } from "../src/utils/redux/store";

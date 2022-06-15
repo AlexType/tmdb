@@ -14,7 +14,7 @@ export const NavList: FC = (): ReactElement => {
       value: "MOVIE",
     },
     {
-      href: "/tv-shows",
+      href: "/tv",
       value: "TV_SHOWS",
     },
     {

@@ -21,7 +21,7 @@ export class MediaService {
   static trending(
     page: number,
     mediaType: EMediaType,
-    timeWindow = ETimeWindow.week
+    timeWindow: ETimeWindow | string = ETimeWindow.week
   ): Promise<AxiosResponse<IMovieTrendingResponse | ITvTrendingResponse>> {
     return $api.get(
       `/trending/${mediaType}/${timeWindow}?api_key=${API_KEY}&page=${page}&language=${i18n?.language}`

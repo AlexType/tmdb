@@ -18,12 +18,9 @@ export enum ETimeWindow {
   week = "week",
 }
 
-export const imgPathCreator = (
-  path: string | null,
-  size = "origin"
-): string => {
+export const imgPath = (path: string | null, size = "origin"): string => {
   return path
-    ? `${IMG_URL}/t/p/${size}/${path}`
+    ? `${IMG_URL}/t/p/${size}${path}`
     : `${PLACEHOLDER_URL}/c7c7c7/c7c7c7/1x1.png`;
 };
 

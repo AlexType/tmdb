@@ -8,7 +8,7 @@ export interface ISelector {
   type?: "green" | "blue";
   selectedIndex?: number;
   options: ISelectorOption[];
-  onChange?: (option: ISelectorOption) => void;
+  onChange?: (value: string) => void;
 }
 
 export interface ISelectorOption {

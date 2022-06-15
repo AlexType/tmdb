@@ -5,7 +5,6 @@ interface IUseLocaleReturn {
   changeLocale: (locale: string) => void;
   toggleLocale: () => void;
   locale: string | undefined;
-  asPath: string;
 }
 
 export const useLocale = (): IUseLocaleReturn => {
@@ -21,5 +20,5 @@ export const useLocale = (): IUseLocaleReturn => {
     changeLocale(router.locale === "en" ? "ru" : "en");
   };
 
-  return { changeLocale, toggleLocale, locale, asPath };
+  return { changeLocale, toggleLocale, locale };
 };

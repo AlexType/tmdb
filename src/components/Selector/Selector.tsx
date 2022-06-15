@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { useTranslation } from "next-i18next";
 import React, { FC, ReactElement, useEffect, useRef, useState } from "react";
 import { IBgConfig, ISelector } from ".";
 import styles from "./Selector.module.scss";
@@ -17,6 +18,8 @@ const Selector: FC<ISelector> = ({
 
   const ref = useRef<HTMLDivElement>(null);
 
+  const { t } = useTranslation("common");
+
   useEffect(() => {
     const { current } = ref;
     if (current) setBgConfig(bgConfig(current));
@@ -32,7 +35,7 @@ const Selector: FC<ISelector> = ({
   const onClick = (current: HTMLDivElement, index: number): void => {
     setActiveIndex(index);
     setBgConfig(bgConfig(current));
-    if (onChange) onChange(options[index]);
+    if (onChange) onChange(options[index].value);
   };
 
   return (
@@ -53,7 +56,7 @@ const Selector: FC<ISelector> = ({
             [styles.active]: activeIndex === index,
           })}
         >
-          {title}
+          {t(title)}
         </div>
       ))}
     </div>

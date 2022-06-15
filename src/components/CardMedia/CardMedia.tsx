@@ -1,22 +1,42 @@
 import classNames from "classnames";
 import Link from "next/link";
-import React, { FC, ReactElement, useRef, useState } from "react";
+import React, { FC, ReactElement, useEffect, useRef, useState } from "react";
+import Moment from "react-moment";
 import { ICardMedia } from ".";
+import { EMediaType } from "../../utils/const";
 import { useClickOutside } from "../../utils/hooks/useClickOutside";
+import { useLocale } from "../../utils/hooks/useLocale";
+import { useTypedSelector } from "../../utils/hooks/useTypedSelector";
+import { IGenre } from "../../utils/models/media/IGenre";
 import Rating from "../Rating";
 import Sprite from "../Sprite";
 import styles from "./CardMedia.module.scss";
 
 const CardMedia: FC<ICardMedia> = ({
   src,
+  date,
   title,
+  rating,
+  genreIds,
+  mediaType,
+  originalTile,
   type = "default",
 }): ReactElement => {
   const [visibilityDetails, setVisibilityDetails] = useState<boolean>(false);
-
+  const [genres, setGenres] = useState<IGenre[]>([]);
   const rootEl = useRef<HTMLDivElement>(null);
+  const { locale } = useLocale();
+  const { tvGenres, movieGenres } = useTypedSelector((s) => s.media);
 
   useClickOutside(rootEl, () => setVisibilityDetails(false));
+
+  useEffect(() => {
+    if (mediaType === EMediaType.movie) {
+      setGenres(movieGenres.filter((g) => genreIds.includes(g.id)));
+    } else if (mediaType === EMediaType.tv) {
+      setGenres(tvGenres.filter((g) => genreIds.includes(g.id)));
+    }
+  }, [genreIds, tvGenres, movieGenres]);
 
   return (
     <div
@@ -38,12 +58,11 @@ const CardMedia: FC<ICardMedia> = ({
             [styles.show]: visibilityDetails,
           })}
         >
-          <p className={styles.original}>The walking dead</p>
+          <p className={styles.original}>{originalTile}</p>
           <ul>
-            <li>комедия,</li>
-            <li>ужасы,</li>
-            <li>драма,</li>
-            <li>триллер</li>
+            {genres.map((genre) => (
+              <li key={genre.id}>{genre.name}</li>
+            ))}
           </ul>
         </div>
         <button
@@ -61,9 +80,11 @@ const CardMedia: FC<ICardMedia> = ({
         <Link href="#">
           <a className={styles.title}>{title}</a>
         </Link>
-        <span className={styles.date}>31 окт 2010</span>
+        <span className={styles.date}>
+          <Moment locale={locale} date={date} format="DD MMMM YYYY" />
+        </span>
         <div className={styles.rating}>
-          <Rating rating={8} />
+          <Rating rating={rating} />
         </div>
       </div>
     </div>

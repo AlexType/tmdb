@@ -4,7 +4,6 @@ import React, { ReactElement } from "react";
 import { Container } from "react-bootstrap";
 
 import CardHuman from "../src/components/CardHuman";
-import CardMedia from "../src/components/CardMedia";
 import Selector, { ISelectorOption } from "../src/components/Selector";
 
 import type { NextPage } from "next";
@@ -26,36 +25,6 @@ const Home: NextPage = (): ReactElement => {
         <title>{t("MAIN_TITLE")}</title>
       </Head>
       <Selector options={options} />
-      <div className="row row-cols-5">
-        <div className="col">
-          <CardMedia
-            src="https://image.tmdb.org/t/p/w220_and_h330_face/3metsxLVhlJU0mNj5gVfKIih0EF.jpg"
-            title="Ходячие мертвецы"
-          />
-        </div>
-        <div className="col">
-          <CardMedia
-            src="https://image.tmdb.org/t/p/w220_and_h330_face/bgOpnrw0vgpIQxVkRvaqHxJMtU.jpg"
-            title="Проект «Адам»"
-          />
-        </div>
-      </div>
-      <div className="row row-cols-5">
-        <div className="col">
-          <CardMedia
-            src="https://image.tmdb.org/t/p/w220_and_h330_face/3metsxLVhlJU0mNj5gVfKIih0EF.jpg"
-            title="Ходячие мертвецы"
-            type="bordered"
-          />
-        </div>
-        <div className="col">
-          <CardMedia
-            src="https://image.tmdb.org/t/p/w220_and_h330_face/bgOpnrw0vgpIQxVkRvaqHxJMtU.jpg"
-            title="Проект «Адам»"
-            type="bordered"
-          />
-        </div>
-      </div>
       <div className="row row-cols-5">
         <div className="col">
           <CardHuman
