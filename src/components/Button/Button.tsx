@@ -4,8 +4,8 @@ import { IButtonProps } from ".";
 import styles from "./Button.module.scss";
 
 const Button: FC<IButtonProps> = ({
-  value,
   onClick,
+  children,
   type = "button",
   variant = "default",
 }): ReactElement => {
@@ -17,7 +17,7 @@ const Button: FC<IButtonProps> = ({
 
   return (
     <button type={type} className={classNames(classes)} onClick={onClick}>
-      {value}
+      {children}
     </button>
   );
 };
