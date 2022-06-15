@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Head from "next/head";
@@ -51,9 +51,9 @@ const Movie: NextPage = (): ReactElement => {
   );
 };
 
-export const getStaticProps = async ({ locale }: any): Promise<any> => ({
+export const getStaticProps: GetStaticProps = async (props) => ({
   props: {
-    ...(await serverSideTranslations(locale, ["common"])),
+    ...(await serverSideTranslations(props?.locale || "ru", ["common"])),
   },
 });
 

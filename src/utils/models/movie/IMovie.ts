@@ -3,7 +3,7 @@ import { IProductionCompany } from "../media/IProductionCompany";
 import { IProductionCountry } from "../media/IProductionCountry";
 import { ISpokenLanguages } from "../media/ISpokenLanguages";
 
-export interface IMove {
+export interface IMovie {
   id: number;
   title: string;
   video: boolean;

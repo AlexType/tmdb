@@ -13,6 +13,7 @@ import Sprite from "../Sprite";
 import styles from "./CardMedia.module.scss";
 
 const CardMedia: FC<ICardMedia> = ({
+  id,
   src,
   date,
   title,
@@ -47,7 +48,7 @@ const CardMedia: FC<ICardMedia> = ({
       })}
     >
       <div className={styles.top}>
-        <Link href="#">
+        <Link href={`${mediaType}/${id}`}>
           <a>
             <img src={src} alt={title} />
           </a>
@@ -77,7 +78,7 @@ const CardMedia: FC<ICardMedia> = ({
         </button>
       </div>
       <div className={styles.bottom}>
-        <Link href="#">
+        <Link href={`${mediaType}/${id}`}>
           <a className={styles.title}>{title}</a>
         </Link>
         <span className={styles.date}>

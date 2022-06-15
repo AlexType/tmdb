@@ -35,6 +35,7 @@ export interface ITv {
   episode_run_time: number[];
   poster_path: string | null;
   number_of_episodes: number;
+  backdrop_path: string | null;
   last_episode_to_air: IEpisode;
   spoken_languages: ISpokenLanguages[];
   production_companies: IProductionCompany[];

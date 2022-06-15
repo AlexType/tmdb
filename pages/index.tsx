@@ -6,7 +6,7 @@ import { Container } from "react-bootstrap";
 import CardHuman from "../src/components/CardHuman";
 import Selector, { ISelectorOption } from "../src/components/Selector";
 
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import { useTranslation } from "next-i18next";
 
 const Home: NextPage = (): ReactElement => {
@@ -51,9 +51,9 @@ const Home: NextPage = (): ReactElement => {
   );
 };
 
-export const getStaticProps = async ({ locale }: any): Promise<any> => ({
+export const getStaticProps: GetStaticProps = async (props) => ({
   props: {
-    ...(await serverSideTranslations(locale, ["common"])),
+    ...(await serverSideTranslations(props?.locale || "ru", ["common"])),
   },
 });
 
